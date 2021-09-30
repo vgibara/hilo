@@ -177,7 +177,7 @@ class Hilo():
 
     def get_events(self):
         self.refreshToken()
-        url_get_events = 'https://apim.hiloenergie.com/Automation/v1/api/Drms/Locations/' + str(self.__location_id) + '/Events'
+        url_get_events = 'https://apim.hiloenergie.com/Automation/v1/api/Locations/' + str(self.__location_id) + '/Events'
         headers = {'Ocp-Apim-Subscription-Key': '20eeaedcb86945afa3fe792cea89b8bf', 
             'authorization' : 'Bearer ' + self.__access_token}
 
