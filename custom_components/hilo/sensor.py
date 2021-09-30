@@ -28,6 +28,13 @@ class PowerSensor(Entity):
         
         self._should_poll = True
 
+        if h.d[index].Power is not None:
+            power_int = int(h.d[index].Power)
+            round_power = round(power_int)
+            self._state  = str(round_power)
+        else:
+            self._state = '0'
+
     @property
     def name(self):
         """Return the precision of the system."""
@@ -39,13 +46,8 @@ class PowerSensor(Entity):
 
     @property
     def state(self):
-        """Return the state of the sensor."""
-        if self._h.d[self.index].Power is None:
-            return '0'
-        else:
-            power_int = int(self._h.d[self.index].Power)
-            round_power = round(power_int)
-            return str(round_power)
+        return self._state
+
     
     @property    
     def device_class(self):
@@ -58,11 +60,8 @@ class PowerSensor(Entity):
         return POWER_WATT
 
     def update(self):
-        return
         #self._h.update()
-        if self._h.d[self.index].Power is None:
-            self._state  = '0'
-        else:
+        if self._h.d[self.index].Power is not None:
             power_int = int(self._h.d[self.index].Power)
             round_power = round(power_int)
             self._state  = str(round_power)

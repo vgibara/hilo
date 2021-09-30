@@ -12,7 +12,8 @@ SCAN_IMTERVAL = timedelta(seconds=15)
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     for i in range(len(hass.data[DOMAIN].d)):
-        if(hass.data[DOMAIN].d[i].deviceType == 'LightDimmer'):
+        # Temporaire pour LightDimmer / WhiteBulb / ColorBulb. ColorBulb à adapter.
+        if(hass.data[DOMAIN].d[i].deviceType == 'LightDimmer' or hass.data[DOMAIN].d[i].deviceType == 'WhiteBulb' or hass.data[DOMAIN].d[i].deviceType == 'ColorBulb'):
             add_entities([HiloDimmer(hass.data[DOMAIN], i)])
 
     return True
