@@ -183,7 +183,7 @@ class Hilo():
 
         req = requests.get(url_get_events, headers=headers)
         req_dictionnary = req.json()
-
+        _LOGGER.warning(req_dictionnary)
         event = {}
 
         now = datetime.datetime.utcnow() - datetime.timedelta(hours=5)
