@@ -28,7 +28,7 @@ class HiloEvent(BinarySensorEntity):
         
         self._h = h
         
-        self._is_on = self._h.is_event
+        #self._is_on = self._h.is_event
         
         self._should_poll = True
 
@@ -60,5 +60,5 @@ class HiloEvent(BinarySensorEntity):
         #else:
             #_LOGGER.warning( "False")
 
-        self._state = self._h.is_event
+        #self._state = self._h.is_event
         return self._state
