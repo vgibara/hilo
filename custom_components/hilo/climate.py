@@ -121,7 +121,6 @@ class HiloClimateEntity(ClimateEntity):
         """Set new target temperature."""
         if ATTR_TEMPERATURE in kwargs:
             self._h.set_attribute('TargetTemperature', kwargs[ATTR_TEMPERATURE], self.index)
-            self._h.d[self.index].TargetTemperature = kwargs[ATTR_TEMPERATURE]
             
     def update(self):
         return
@@ -139,4 +138,4 @@ class HiloClimateEntity(ClimateEntity):
         #if self._h.d[self.index].CurrentTemperature is None:
         #    self._current_temperature = self._current_temperature   
         #else:
-        #    self._current_temperature = self._h.d[self.index].CurrentTemperature    
+        #    self._current_temperature = self._h.d[self.index].CurrentTemperature

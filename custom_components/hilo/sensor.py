@@ -23,17 +23,13 @@ class PowerSensor(Entity):
         self.index = index
         #self.entity_id = ENTITY_ID_FORMAT.format(h.d[index].deviceId)
         self._name = h.d[index].name
-        
         self._h = h
-        
         self._should_poll = True
 
-        if h.d[index].Power is not None:
-            power_int = int(h.d[index].Power)
-            round_power = round(power_int)
-            self._state  = str(round_power)
+        if not self._h.d[self.index].Power:
+            return '0'
         else:
-            self._state = '0'
+            return str(int(self._h.d[self.index].Power))
 
     @property
     def name(self):
@@ -60,9 +56,4 @@ class PowerSensor(Entity):
         return POWER_WATT
 
     def update(self):
-        #self._h.update()
-        if self._h.d[self.index].Power is not None:
-            power_int = int(self._h.d[self.index].Power)
-            round_power = round(power_int)
-            self._state  = str(round_power)
-        return self._state
+        return
