@@ -1,7 +1,7 @@
 import requests, time, json, logging, urllib
 from datetime import datetime, timedelta
 from functools import wraps
-from requests.adapters import HTMLAdapter
+from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
 _LOGGER = logging.getLogger(__name__)
